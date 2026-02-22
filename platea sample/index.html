@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Benefice Delivery</title>
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #953;
+      color: black;
+      text-align: center;
+      padding: 15px;
+    }
+    nav {
+      background-color: #333;
+      overflow: hidden;
+    }
+    nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+    .product {
+      background-image:Apples.png;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 200px;
+	  height:230px;
+      margin: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 2px 2px 8px rgba(1,1,1,0.1);
+    }
+    .product img {
+      width: 90%;
+      height: 85px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+	  width:190px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    footer {
+      text-align: center;
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      margin-top: 20px;
+    }
+	   nav {
+      background-color: #333;
+	  text:white;
+      overflow: hidden;
+	  }
+	}
+ 
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<h1>Platea Delivery</h1>
+<p>Fast • Fresh • Reliable</p>
+</header>
+
+<nav class="navbar">
+<a href="index.html">Home</a>
+<a href="restaurant.html">Restaurant</a>
+<a href="bar.html">Bar</a>
+<a href="menu.html">Menu</a>
+<a href="booking.html">Book Table</a>
+<a href="market.html">Online Market</a>
+<a href="login.html">Login</a>
+<a href="#" onclick="viewCart()">🛒 Cart (<span id="cartCount">0</span>)</a>
+</nav>
+
+ <section class="products">
+    <div  class="product">
+      <img src="Apples.png" alt="Product 1">
+      <h3>Apple</h3>
+      <p>Price: $500 FRW</p>
+      <button onclick="buyNow('Apple',500)">Buy</button>
+    </div>
+
+    <div class="product">
+      <img src="milk.png" alt="Product 2">
+      <h3>Milk</h3>
+      <p>Price: $2000 FRW</p>
+      <button onclick="buyNow('Milk',2000)">Buy</button>
+    </div>
+
+    <div class="product">
+      <img src="bread.png" alt="Product 3">
+      <h3>Bread</h3>
+      <p>Price: $1500 FRW</p>
+      <button onclick="buyNow('Bread',1500)">Buy</button>
+    </div>
+	
+	 <div  class="product">
+      <img src="burger.png" alt="Product 1">
+      <h3>Burger</h3>
+      <p>Price: $5000 FRW</p>
+      <button onclick="buyNow('Burger',5000)">Buy</button>
+    </div>
+	
+	 <div  class="product">
+      <img src="rice.png" alt="Product 1">
+      <h3>chicken rice</h3>
+      <p>Price: $25000 FRW</p>
+      <button onclick="buyNow('chicken rice',25000)">Buy</button>
+    </div>
+	
+	 <div  class="product">
+      <img src="fanta.png" alt="Product 1">
+      <h3>Fanta orange</h3>
+      <p>Price: $2500 FRW</p>
+      <button onclick="buyNow('Fanta orange',2500)">Buy</button>
+    </div>
+	
+	 <div  class="product">
+      <img src="tomatoes.png" alt="Product 1">
+      <h3>Tomatoes</h3>
+      <p>Price: $300 FRW</p>
+      <button onclick="buyNow('Tomatoes',300)">Buy</button>
+    </div>
+	
+	 <div  class="product">
+      <img src="nuts.png" alt="Product 1">
+      <h3>Ground nuts</h3>
+      <p>Price: $5000 FRW</p>
+      <button onclick="buyNow('Ground nuts',5000)">Buy</button>
+    </div>
+  </section>
+
+<footer>© 2025 Benefice Delivery</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+updateCartCount();
+
+function buyNow(name, price){
+  cart.push({name, price});
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  alert(name + " added to cart");
+}
+
+function updateCartCount(){
+  document.getElementById("cartCount").innerText = cart.length;
+}
+
+function viewCart(){
+  if(cart.length === 0){
+    alert("Cart empty");
+    return;
+  }
+  let total = 0, msg="Your Cart:\n";
+  cart.forEach(i=>{
+    msg += i.name+" - "+i.price+" FRW\n";
+    total += i.price;
+  });
+  msg += "\nTotal: "+total+" FRW\nProceed to payment?";
+  if(confirm(msg)){
+    window.location.href="payment.html";
+  }
+}
+</script>
+
+</body>
+</html>

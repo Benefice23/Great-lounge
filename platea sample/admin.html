@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Admin Dashboard</h1></header>
+<section id="orders"></section>
+
+<script>
+let orders = JSON.parse(localStorage.getItem("lastOrder")) || [];
+let html="<h3>Recent Orders</h3><ul>";
+orders.forEach(o=>{
+  html+=`<li>${o.name} - ${o.price} FRW</li>`;
+});
+html+="</ul>";
+document.getElementById("orders").innerHTML=html;
+</script>
+
+</body>
+</html>

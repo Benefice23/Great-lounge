@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Receipt</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Receipt</h1></header>
+<section id="receipt"></section>
+
+<script>
+let order = JSON.parse(localStorage.getItem("lastOrder")) || [];
+let total = 0, html="<ul>";
+order.forEach(i=>{
+  html += `<li>${i.name} - ${i.price} FRW</li>`;
+  total += i.price;
+});
+html += "</ul><h3>Total: "+total+" FRW</h3>";
+document.getElementById("receipt").innerHTML=html;
+</script>
+
+</body>
+</html>

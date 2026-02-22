@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Login</h1></header>
+<nav class="navbar">
+<a href="index.html">Home</a>
+<a href="restaurant.html">Restaurant</a>
+<a href="bar.html">Bar</a>
+<a href="menu.html">Menu</a>
+<a href="booking.html">Book Table</a>
+<a href="market.html">Online Market</a>
+<a href="login.html">Login</a>
+</nav>
+
+<section>
+<input id="user" placeholder="Username"><br>
+<input id="pass" type="password" placeholder="Password"><br>
+<button onclick="login()">Login</button>
+</section>
+
+<footer>© 2025 Benefice Delivery</footer>
+
+<script>
+function login(){
+  if(user.value==="admin" && pass.value==="1234"){
+    window.location.href="admin.html";
+  } else {
+    alert("Wrong login");
+  }
+}
+</script>
+
+</body>
+</html>

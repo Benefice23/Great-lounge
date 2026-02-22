@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Payment</h1></header>
+
+<section>
+<p id="total"></p>
+<input id="address" placeholder="Delivery Address"><br>
+<select>
+<option>MTN MoMo</option>
+<option>Airtel Money</option>
+<option>Cash on Delivery</option>
+</select><br>
+<button onclick="pay()">Pay</button>
+</section>
+
+<footer>© 2025 Benefice Delivery</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = cart.reduce((s,i)=>s+i.price,0);
+document.getElementById("total").innerText="Total: "+total+" FRW";
+
+function pay(){
+  if(!address.value){
+    alert("Enter address");
+    return;
+  }
+  localStorage.setItem("lastOrder", JSON.stringify(cart));
+  localStorage.removeItem("cart");
+  alert("Payment successful");
+  window.location.href="receipt.html";
+}
+</script>
+
+</body>
+</html>

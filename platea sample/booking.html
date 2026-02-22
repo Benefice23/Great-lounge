@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Book Table</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>Book a Table</h1></header>
+<nav class="navbar">
+<a href="index.html">Home</a>
+<a href="restaurant.html">Restaurant</a>
+<a href="bar.html">Bar</a>
+<a href="menu.html">Menu</a>
+<a href="booking.html">Book Table</a>
+<a href="market.html">Online Market</a>
+<a href="login.html">Login</a>
+</nav>
+
+<section>
+<input id="name" placeholder="Name"><br>
+<input id="phone" placeholder="Phone"><br>
+<input id="date" type="date"><br>
+<button onclick="book()">Book</button>
+</section>
+
+<footer>© 2025 Benefice Delivery</footer>
+
+<script>
+function book(){
+  if(!name.value || !phone.value || !date.value){
+    alert("Fill all fields");
+    return;
+  }
+  alert("Table booked for "+name.value);
+}
+</script>
+
+</body>
+</html>
